@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tài khoản pro @DDATKOY567</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <h1 class="title">Tài khoản pro @datkoy567 </h1>
+      <p id="currentTime"></p>
+      <script src="script.js"></script>
+  </body>
+</html><!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Profile Cá Nhân</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {
+      background: #f3f4f6;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .profile-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .profile-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+    }
+    .profile-header .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .profile-header .info {
+      margin-left: 20px;
+      flex-grow: 1;
+    }
+    .profile-header .info h1 {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #333;
+      display: flex;
+      align-items: center;
+    }
+    .profile-header .info h1 .tick-icon {
+      margin-left: 8px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: #1877f2; /* Màu xanh nước biển Facebook */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .profile-header .info h1 .tick-icon path {
+      fill: white;
+    }
+    .profile-header .info p {
+      color: #666;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+    .profile-header .follow-btn {
+      background-color: #0095f6;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .profile-header .follow-btn:hover {
+      background-color: #007bb5;
+    }
+    .tabs {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid #ddd;
+    }
+    .tabs button {
+      padding: 10px;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      color: #333;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .tabs button:hover {
+      color: #0095f6;
+    }
+    .tabs button.active {
+      color: #0095f6;
+      font-weight: bold;
+    }
+    .posts {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+    .post {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .post img {
+      width: 100%;
+      border-radius: 8px;
+    }
+    .post .caption {
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-container">
+    <!-- Profile Header -->
+    <div class="profile-header">
+      <img src="https://i.imgur.com/I5iPnxm.png" alt="Avatar" class="avatar" />
+      <div class="info">
+        <h1>Đình Đạt
+          <!-- Tick xanh hình tròn -->
+          <span class="tick-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="h-6 w-6">
+              <path d="M9 16.2l-4.5-4.5L4 13l5 5 10-10-1.5-1.5z" />
+            </svg>
+          </span>
+        </h1>
+        <p>@datkoy567</p>
+        <p>Giới Thiệu: Đây là mô tả về tôi, tôi thích chia sẻ những khoảnh khắc tuyệt vời trong cuộc sống.</p>
+        <div class="stats">
+          <p><strong>123</strong> Bài Viết</p>
+          <p><strong>5,555,555,555</strong> Người Theo Dõi</p>
+          <p><strong>9,999,999</strong> Đang Theo Dõi</p>
+        </div>
+        <button class="follow-btn">Theo Dõi</button>
+      </div>
+    </div>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="posts">Bài viết</button>
+      <button class="tab-btn" data-tab="followers">Người Theo Dõi</button>
+      <button class="tab-btn" data-tab="following">Đang Theo Dõi</button>
+    </div>
+
+    <!-- Posts -->
+    <div id="posts" class="posts">
+      <div class="post">
+        <img src="https://via.placeholder.com/300" alt="Post 1" />
+        <div class="caption">Bài Viết</div>
+      </div>
+      <div class="post">
+        <img src="https://via.placeholder.com/300" alt="Post 2" />
+        <div class="caption">Bài Viết</div>
+      </div>
+      <div class="post">
+        <img src="https://via.placeholder.com/300" alt="Post 3" />
+        <div class="caption">Bài Viết</div>
+      </div>
+      <!-- Add more posts as needed -->
+    </div>
+
+    <!-- Followers and Following (Hidden by Default) -->
+    <div id="followers" class="hidden">
+      <p>Danh sách Followers</p>
+      <!-- List of followers here -->
+    </div>
+    <div id="following" class="hidden">
+      <p>Danh sách Following</p>
+      <!-- List of following here -->
+    </div>
+  </div>
+
+  <script>
+    // JavaScript for tab switching
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const posts = document.getElementById('posts');
+    const followers = document.getElementById('followers');
+    const following = document.getElementById('following');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Remove active class from all buttons
+        tabBtns.forEach(btn => btn.classList.remove('active'));
+        // Hide all content
+        posts.classList.add('hidden');
+        followers.classList.add('hidden');
+        following.classList.add('hidden');
+
+        // Show the clicked tab's content
+        const targetTab = btn.getAttribute('data-tab');
+        if (targetTab === 'posts') {
+          posts.classList.remove('hidden');
+        } else if (targetTab === 'followers') {
+          followers.classList.remove('hidden');
+        } else if (targetTab === 'following') {
+          following.classList.remove('hidden');
+        }
+
+        // Add active class to clicked button
+        btn.classList.add('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
